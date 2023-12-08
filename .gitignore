@@ -43,4 +43,7 @@ CMakeLists.txt.user*
 # CLion
 .idea
 
+Bin/
+Lib/
+
 # End of https://www.gitignore.io/api/qt

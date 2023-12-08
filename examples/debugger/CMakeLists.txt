@@ -13,6 +13,7 @@ else()
     file(GLOB source_file "main.cpp" "*.cpp")
     add_executable(debugger ${header_file} ${source_file})
 endif()
+# vtk9.0.3
 find_package(VTK REQUIRED)
 target_link_libraries(debugger PRIVATE qt_imgui_widgets ${VTK_LIBRARIES})
 target_link_libraries(debugger PRIVATE implot)
@@ -26,3 +27,12 @@ if(ANDROID)
     include(${CMAKE_CURRENT_LIST_DIR}/../../tools/qt-android-cmake/AddQtAndroidApk.cmake)
     add_qt_android_apk(qt_imgui_demo_widget_apk qt_imgui_demo_widget)
 endif()
+
+set(Bin_Root "${CMAKE_SOURCE_DIR}/Bin")
+set(Lib_Root "${CMAKE_SOURCE_DIR}/Lib")
+set_target_properties(${ProId}
+PROPERTIES
+RUNTIME_OUTPUT_DIRECTORY ${Bin_Root}
+ARCHIVE_OUTPUT_DIRECTORY ${Lib_Root}
+VS_DEBUGGER_WORKING_DIRECTORY ${Bin_Root}/$<CONFIG>
+)
