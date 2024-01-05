@@ -308,7 +308,7 @@ protected:
             {
                 for (auto i = 0; i < 3; ++i)
                 {
-                    riw[i]->SetThickMode(currentMode);
+                    riw[i]->SetThickMode(thickMode);
                 }
             }
         }
